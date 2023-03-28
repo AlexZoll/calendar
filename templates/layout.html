@@ -15,8 +15,11 @@
 
     </head>
     <body>
-        <nav class="navbar justify-content-end" style="background-color: #e3f2fd;">
-            <ul class="nav">
+        <nav class="navbar">
+            <div class="brand">
+                <a class="navbar-brand text-reset" href="/"><h1 class="display-5">Calendar</h1></a>
+            </div>
+            <ul class="nav justify-content-end">
                 {% if session["user_id"] %}
                     <li class="nav-item">
                     <a class="nav-link" href="/change_password">Change password</a>

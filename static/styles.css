@@ -1,0 +1,11 @@
+.brand
+{
+    background: -webkit-linear-gradient(#3131c6, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 0.5rem;
+}
+.navbar
+{
+    background-color: #e3f2fd;
+}
