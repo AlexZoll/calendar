@@ -50,11 +50,10 @@ def login():
             return render_template("login.html")
 
         # Check email and password
-        if (
-            checkers.is_email(request.form.get("email"))
-            and user := User.query.filter(User.email == request.form.get("email")).scalar
-        ):
-            if check_password_hash(user.hash, request.form.get("password")):
+        if checkers.is_email(request.form.get("email")):
+            if user := User.query.filter(User.email == request.form.get("email")).scalar:
+                if check_password_hash(user.hash, request.form.get("password")):
+
                 session["user_id"] = user.id
                 return redirect("/")
         else:
