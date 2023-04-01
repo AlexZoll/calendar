@@ -4,6 +4,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
+from validator_collection import validators, checkers, errors
 
 from helpers import check_password, login_required
 from models import *
@@ -48,8 +49,12 @@ def login():
             flash("Please provide email and password")
             return render_template("login.html")
 
-        # Check email
-        
+        # Check email and password
+        if chekers.is_email(request.form.get("email")):
+
+        if not user := User.query.filter(User.email == request.form.get("email")).scalar:
+
+
 
         # Check password
 
