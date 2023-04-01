@@ -54,8 +54,8 @@ def login():
             if user := User.query.filter(User.email == request.form.get("email")).scalar:
                 if check_password_hash(user.hash, request.form.get("password")):
 
-                session["user_id"] = user.id
-                return redirect("/")
+                    session["user_id"] = user.id
+                    return redirect("/")
         else:
             flash("Invalid email and/or password")
             return render_template("login.html")
