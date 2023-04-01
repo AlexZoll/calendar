@@ -50,15 +50,15 @@ def login():
             return render_template("login.html")
 
         # Check email and password
-        if chekers.is_email(request.form.get("email")):
-
-        if not user := User.query.filter(User.email == request.form.get("email")).scalar:
-
-
-
-        # Check password
-
-        return redirect("/")
+        if (
+            checkers.is_email(request.form.get("email"))
+            and user := User.query.filter(User.email == request.form.get("email")).scalar
+        ):
+            if check_password_hash(user.hash, request.form.get("password")):
+                return redirect("/")
+        else:
+            flash("Invalid email and/or password")
+            return render_template("login.html")
     else:
         return render_template("login.html")
 
