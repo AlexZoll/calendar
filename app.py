@@ -42,7 +42,16 @@ def login():
     """Log in user"""
 
     if request.method == "POST":
-        if not request.form.get("email")
+
+        # Check empty input
+        if not request.form.get("email") or not request.form.get("password"):
+            flash("Please provide email and password")
+            return render_template("login.html")
+
+        # Check email
+        
+
+        # Check password
 
         return redirect("/")
     else:
