@@ -42,7 +42,9 @@ def login():
     """Log in user"""
 
     if request.method == "POST":
-        pass
+        if not request.form.get("email")
+
+        return redirect("/")
     else:
         return render_template("login.html")
 
